@@ -10,10 +10,16 @@ app.get('/', (req: Request, res: Response) => {
     res.json({ message: 'Welcome to Fran\'s API!'})
 })
 
-const wordleData = JSON.parse(fs.readFileSync('./wordle.json', 'utf-8'))
+const wordleData = JSON.parse(fs.readFileSync('wordle.json', 'utf-8'))
 
 app.get('/wordle', (req, res) => {
-    res.json( wordleData)
+    res.json(wordleData)
+})
+
+const matchData = JSON.parse(fs.readFileSync('gamesdata.json', 'utf-8'))
+
+app.get('/lol-match-data', (req, res) => {
+    res.json(matchData)
 })
 
 app.listen(PORT, () => {

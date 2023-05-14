@@ -11,9 +11,13 @@ app.use(express_1.default.json());
 app.get('/', (req, res) => {
     res.json({ message: 'Welcome to Fran\'s API!' });
 });
-const wordleData = JSON.parse(fs_1.default.readFileSync('./wordle.json', 'utf-8'));
+const wordleData = JSON.parse(fs_1.default.readFileSync('wordle.json', 'utf-8'));
 app.get('/wordle', (req, res) => {
     res.json(wordleData);
+});
+const matchData = JSON.parse(fs_1.default.readFileSync('gamesdata.json', 'utf-8'));
+app.get('/lol-match-data', (req, res) => {
+    res.json(matchData);
 });
 app.listen(PORT, () => {
     console.log('Server running on port', PORT);
