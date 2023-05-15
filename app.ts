@@ -24,6 +24,11 @@ app.get('/lol-match-data', (req, res) => {
     res.json(matchData)
 })
 
+app.get('/get-draft', (req, res) => {
+    let randomNum = Math.floor(Math.random() * Object.entries(matchData).length)
+    res.json(Object.entries(matchData)[randomNum])
+})
+
 app.listen(PORT, () => {
     console.log('Server running on port', PORT)
 })
